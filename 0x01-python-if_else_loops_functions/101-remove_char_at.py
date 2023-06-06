@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def remove_char_at(str, n):
     list1 = list(str)
     for j in range(n, len(list1)):

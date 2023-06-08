@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
+from sys import argv
 
- import sys
+j, resend = 1, 0
 
- args = [int(arg) for arg in sys.argv[1:]]
-
- result = sum(args)
-
- print(result)
+if __name__ == '__main__':
+    while j < len(argv):
+        resend += int(argv[j])
+        j += 1
+    print(resend)

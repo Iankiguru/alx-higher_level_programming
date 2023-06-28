@@ -1,49 +1,52 @@
 #!/usr/bin/python3
-"""Defines a class Square"""
+""" module contains: class Square """
 
 
 class Square:
-    """Represents a square
-    Attributes:
-        __size (int): size of a side of the square
     """
-    def __init__(self, size=0):
-        """initializes the square
-        Args:
-            size (int): size of a side of the square
-        Returns:
-            None
-        """
-        self.size = size
+        Square: defines a square
+        Attributes:
+            size (int): size of square
+        Method:
+            __init__: Initializes size for all instances
+    """
 
-    def area(self):
-        """calculates the square's area
-        Returns:
-            The area of the square
+    def __init__(self, size=0):
+        """ Initialization of attributes for instances
+            Args:
+                size (int): size of the square.
         """
-        return (self.__size) ** 2
+        if (isinstance(size, int)):
+            self.__size = size
+            if size < 0:
+                raise ValueError("size must be >= 0")
+        else:
+            raise TypeError("size must be an integer")
 
     @property
     def size(self):
-        """getter of __size
-        Returns:
-            The size of the square
+        """ getter function to for private attribute size
+            Return:
+                size of the square
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """setter of __size
-        Args:
-            value (int): the size of a size of the square
-        Returns:
-            None
+        """ setter function for private attribute size
+            Args:
+                value (int): value to be set
+            Return:
+                nothing
         """
-        if type(value) is not int:
-            raise TypeError("size must be an integer")
-        else:
-            if value < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                self.__size = value
+        if not (isinstance(value, int)):
+            raise TypeError('size must be an integer')
+        if value < 0:
+            raise ValueError('size must be >= 0')
+        self.__size = value
 
+    def area(self):
+        """
+             area of the square.
+        """
+        return self.__size * self.__size
